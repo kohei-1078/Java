@@ -28,6 +28,53 @@ public class ClassCreation {
 		//	StaticTest.java
 		//	StaticTestMain.java
 		//	(2)final修飾子
+		// StaticTest.java
+		// StaticTestMain.java
+
+		// 3-2-5 継承
+		// SuperClass
+		// SubClass
+		SubClass subClass = new SubClass();
+		subClass.superMethod(); //SuperClassクラスのメソッドを使用できる
+
+		// 3-2-6 抽象クラス
+		// AbstractItem
+		// FileItemクラス
+		// Directoryクラス
+
+		// 3-2-7 インターフェイス
+		// Foo
+		// DefaultFoo
+		Foo foo = new DefaultFoo("Hello Foo!");
+
+		System.out.println(foo.say());
+
+		// TaskHandler
+
+		// 3-2-8 匿名クラス
+		// TaskHandler
+		// AnnoymousClassSample
+
+		// 3-3 型判定とオブジェクトの等価性
+		// 3-3-1 instanceof演算子
+		// BaseService
+		// AbstractBaseService
+		// FooService
+
+		Object obj = new FooService("hello");
+
+		System.out.println(obj instanceof FooService);
+		System.out.println(obj instanceof AbstractBaseService);
+		System.out.println(obj instanceof BaseService);
+		System.out.println(obj instanceof Integer);
+
+		if (obj instanceof FooService) {
+			FooService service = (FooService) obj;
+			System.out.println(service.say());
+		}
+
+		// 3-3-2
+
 	}
 
 }

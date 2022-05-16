@@ -31,6 +31,18 @@ public class StaticTestMain {
 		test2.instanceField = "Yo";
 		System.out.println(test2.instanceMethod());
 		System.out.println(test.instanceMethod());
+
+		// (2)final修飾子
+		System.out.println(StaticTest.GREETING_MESSAGE); //Hello
+		System.out.println(StaticTest.staticField); //World
+		System.out.println(StaticTest.staticMethod()); //yay!
+
+//		StaticTest.GREETING_MESSAGE = "Hello!"; //コンパイルエラー
+
+		StaticTest.staticField = "Japan";
+
+		StaticTest test3 = new StaticTest();
+		System.out.println(test3.instanceMethod()); // Hello Japan yay!
 	}
 
 }
