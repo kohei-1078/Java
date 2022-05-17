@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 // 3-2
 public class ClassCreation {
 
@@ -73,7 +76,51 @@ public class ClassCreation {
 			System.out.println(service.say());
 		}
 
-		// 3-3-2
+		// 3-3-2 オブジェクトの等価性
+		// Employee
+		Employee employee1 = new Employee(1, "山田 太郎");
+		Employee employee2 = new Employee(1, "山田 太郎");
+		Set<Employee> employees = new HashSet<>();
+		employees.add(employee1);
+		employees.add(employee2);
+		System.out.println(employees.size()); //employeesに入っているオブジェクトの数を表示する
+
+		// Point
+		Point point1 = new Point(3,2);
+		Point point2 = new Point(3,2);
+
+		System.out.println(point1);
+		System.out.println(point2);
+
+		System.out.println(point1.hashCode());
+		System.out.println(point2.hashCode());
+
+		System.out.println(point1.equals(point2));
+
+		// 3-4 型にまつわる問題を予防する
+		// 3-4-1 列挙型(enum)
+		// Task
+		// TaskType
+		Task task = new Task(TaskType.PRIVATE, "buy milk");
+		TaskType type = task.getType();
+
+		System.out.println(TaskType.PRIVATE.equals(type));
+
+		switch (type) {
+			case PRIVATE: //TaskType.がつかないことに注意。TaskTypeがつけるとコンパイルエラーになる
+				System.out.println("Task[type = " + type + "]");
+				break;
+			case WORK:
+				System.out.println("Task[type = " + type + "]");
+				break;
+		}
+
+		// HttpStatus
+		HttpStatus hs = HttpStatus.OK;
+		System.out.println("HttpStatus = " + hs + "[" + hs.getValue() + "]");
+
+
+		// 3-4-2
 
 	}
 
