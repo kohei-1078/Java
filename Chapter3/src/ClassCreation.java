@@ -187,6 +187,21 @@ public class ClassCreation {
 		GenericStack<String> gstack = GenericStackUtil.as(strList);
 //		System.out.println(gstack);
 
+		// NumberStack
+
+		NumberStack<Integer> intStack = new NumberStack<>();
+
+		NumberStack<Long> longStack =new NumberStack<>();
+
+		intStack.push(100);
+		intStack.push(200);
+
+		Integer numElement = intStack.pop();
+
+		if (numElement != null) {
+			System.out.println(numElement);
+		}
+
 
 
 	}
