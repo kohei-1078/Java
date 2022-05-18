@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 // 3-2
@@ -120,7 +122,72 @@ public class ClassCreation {
 		System.out.println("HttpStatus = " + hs + "[" + hs.getValue() + "]");
 
 
-		// 3-4-2
+		// 3-4-2 ジェネリクス(総称型)
+
+		List list = new ArrayList();
+		list.add("Java");
+		String element = (String)list.get(0); // キャストが必要
+		System.out.println(element); // Java
+
+		List<String> list2 = new ArrayList<String>(); //Java5.0,6.0の書き方
+		// List<String> list2 = new ArrayList<>(); //Java7.0以降ならダイヤモンドオペレータが使用可能
+
+		list2.add("Java");
+		// list.add(true) //ジェネリクスのより要素の型がStringで固定されるため、コンパイルエラー
+
+		String element2 = list2.get(0); //キャストが不要
+		System.out.println(element2); //Java
+
+		// StringStack
+		StringStack strStack = new StringStack();
+		String strElement = strStack.pop();
+
+		// strElement.equals("Java"); //NullPointerException!!!
+
+		strStack.push("Scala");
+		strStack.push("Groovy");
+		strStack.push("Java");
+
+		strElement = strStack.pop();
+
+		if (strElement != null) {
+			System.out.println(strElement); //Java
+		}
+
+		// GenericStack
+
+		GenericStack<String> genStack = new GenericStack<>();
+
+		//genStack.push(true); //型がString型ではないのでfコンパイルエラー
+		genStack.push("Scala");
+		genStack.push("Groovy");
+		genStack.push("Java");
+
+		String genElement = genStack.pop(); //キャストが不要
+
+		if(genElement != null) {
+			System.out.println(genElement); //Java
+		}
+
+		GenericStack<Integer> genStack2 = new GenericStack<>();
+
+		genStack2.push(100);
+		genStack2.push(200);
+
+		Integer genElement2 = genStack2.pop(); // キャストが不要
+
+		if(genElement2 != null) {
+			System.out.println(genElement2);
+		}
+
+		// GenericStackUtil
+		List<String> strList = new ArrayList<>();
+		strList.add("Java");
+		strList.add("Groovy");
+		GenericStack<String> gstack = GenericStackUtil.as(strList);
+//		System.out.println(gstack);
+
+
 
 	}
 
