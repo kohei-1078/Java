@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 public class Main {
@@ -188,6 +189,47 @@ public class Main {
 		System.out.println(list2);
 
 		// 4-3-5 Listを検索する
+		List<Integer> values = Arrays.asList(1, 1, 4, 5, 7, 8, 11, 12, 17, 21, 24);
+		int found2 = Collections.binarySearch(values, 5);
+		System.out.println(found2);
+
+		int notFound2 = Collections.binarySearch(values, 6);
+		System.out.println(notFound2);
+
+		// 4-3-6 Listのイテレーション
+		List<String> list3 = new ArrayList<>();
+		list3.add("a");
+		list3.add("b");
+		list3.add("c");
+
+		for(String element : list3) {
+			System.out.println(element);
+		}
+
+		for(Iterator<String> iterator = list3.iterator(); iterator.hasNext(); ) {
+			String element2 = iterator.next();
+			System.out.println(element2);
+		}
+
+		List<Student> students2 = new ArrayList<>();
+		students2.add(new Student("Ken", 100));
+		students2.add(new Student("Shin", 60));
+		students2.add(new Student("Takuya", 80));
+
+		Iterator<Student> iterator2 = students2.iterator();
+		while (iterator2.hasNext()){
+			Student student2 = iterator2.next();
+			if (student2.getScore() < 70) {
+				System.out.println(student2.getScore());
+				iterator2.remove();
+			}
+		}
+
+		for (Student student : students2) {
+			System.out.println(student.getName() + ":" + student.getScore());
+		}
+
+		// 4-3-7 Listの3つの実装クラスを理解する
 
 	}
 
