@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
@@ -230,6 +232,48 @@ public class Main {
 		}
 
 		// 4-3-7 Listの3つの実装クラスを理解する
+
+		// 4-3-8 Listの実装クラスをどう使い分けるか
+
+		// 4-4 キーと値の組み合わせで値を扱う～Mapインタフェース
+		// 4-4-1 Mapを作成する
+		Map<Integer, String> map = new HashMap<>();
+		map.put(1,"One");
+		map.put(2,"Two");
+		map.put(3,"Three");
+
+		// 4-4-2 Mapの使い方
+		Map<String, Integer> scores = new HashMap<>();
+
+		scores.put("Ken", 100);
+		scores.put("Shin", 60);
+		scores.put("Takuya", 80);
+		System.out.println("①Mapの中身：" + scores.toString());
+
+		scores.put("Shin", 50);
+		System.out.println("②Mapの中身：" + scores.toString());
+
+		Integer takuyaScore = scores.get("Takuya");
+		System.out.println("③Takuyaの点数：" + takuyaScore);
+
+		scores.remove("Shin");
+		System.out.println("④Mapの中身：" + scores.toString());
+
+		int size2 = scores.size();
+		System.out.println("⑤要素の数：" + size2);
+
+		boolean existKen = scores.containsKey("Ken");
+		System.out.println("⑥Kenの存在；" + existKen);
+
+		boolean exist80 = scores.containsValue(80);
+		System.out.println("⑦80点の存在：" + exist80);
+
+		// 4-4-3 Mapの3つの実装クラスを理解する
+
+		// 4-4-4 Mapの実装クラスをどう使い分けるか
+
+		// 4-5 値の集合を扱う～Setインタフェース
+
 
 	}
 
