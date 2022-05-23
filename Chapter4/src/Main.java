@@ -3,9 +3,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Main {
 
@@ -273,6 +275,42 @@ public class Main {
 		// 4-4-4 Mapの実装クラスをどう使い分けるか
 
 		// 4-5 値の集合を扱う～Setインタフェース
+		// 4-5-1 Setの初期化
+		List<Integer> integerList2 = new ArrayList();
+
+		Set<Integer> integerSet = new HashSet<>(integerList2);
+
+		List<Integer> integerList3 = Arrays.asList(1, 62, 31, 1, 54, 31);
+		System.out.println("List : " + integerList3);
+
+		Set<Integer> integerSet2 = new HashSet<>(integerList3);
+		System.out.println("Set : " + integerSet2);
+
+		Integer[] integerArray = {1, 62, 31, 1, 54, 31};
+		List<Integer> integerList4 = Arrays.asList(integerArray);
+		Set<Integer> integerSet3 = new HashSet<>(integerList4);
+
+		// 4-5-2 Setの使い方
+		Set<String> names2 = new HashSet<>();
+
+		names2.add("Ken");
+		names2.add("Shin");
+		names2.add("Takuya");
+		System.out.println("①Setの中身：" + names2.toString());
+
+		names2.add("Shin");
+		System.out.println("②Setの中身：" + names2.toString());
+
+		names2.remove("Shin");
+		System.out.println("③Setの中身：" + names2.toString());
+
+		int size3 = names2.size();
+		System.out.println("④要素の数：" + size3);
+
+		boolean existKen2 = names2.contains("Ken");
+		System.out.println("⑤Kenの存在：" + existKen2);
+
+		// 4-5-3 Setの3つの実装クラスを理解する
 
 
 	}
